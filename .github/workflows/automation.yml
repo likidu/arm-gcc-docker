@@ -1,0 +1,14 @@
+name: Dockerize Arm GCC Toolchain
+on: push
+jobs:
+  build-container:
+    name: Build Docker container image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v3.1.0
+        with:
+          username: ${{ github.DOCKER_USERNAME }}
+          password: ${{ github.DOCKER_PASSWORD }}
+          repository: likidu/arm-gcc-docker
+          tags: latest, ${{ github.run_number }}
