@@ -1,10 +1,10 @@
 FROM ubuntu:22.04
 
-RUN apt update && \
-    apt upgrade -y && \
-    apt install -y wget python3 python3-pip cmake git ninja-build && \
-    apt autoclean -y && \
-    apt autoremove -y && \
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y wget python3 python3-pip cmake git ninja-build && \
+    apt-get autoclean -y && \
+    apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* && \
     # Make python3 as default python
     update-alternatives --install /usr/bin/python python /usr/bin/python3 1 && \
